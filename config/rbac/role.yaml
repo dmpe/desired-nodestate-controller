@@ -5,6 +5,15 @@ metadata:
   name: manager-role
 rules:
 - apiGroups:
+  - ""
+  resources:
+  - nodes
+  verbs:
+  - get
+  - list
+  - update
+  - watch
+- apiGroups:
   - webapp.dmpe.github.io
   resources:
   - declarativelabels

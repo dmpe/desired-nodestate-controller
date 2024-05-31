@@ -1,0 +1,10 @@
+apiVersion: webapp.dmpe.github.io/v1alpha1
+kind: DeclarativeLabels
+metadata:
+  name: myfirsttest
+  namespace: default
+spec:
+  period: 60 # required, number in seconds
+  minNodes: 1 # also required, how many nodes should be labelled
+  nodeLabels: # required node will be labelled with these labels
+    "dmpe.github.io/winner": "test-label-added"
