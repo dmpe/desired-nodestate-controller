@@ -118,7 +118,8 @@ func (r *DeclarativeLabelsReconciler) Reconcile(ctx context.Context, req ctrl.Re
 			} else {
 				fmt.Println("Desired label not found - adding it now...")
 				node.Labels[myKey] = myValue
-				if err := r.Update(ctx, &node); err != nil {
+				patch := client.MergeFrom(node.DeepCopy())
+				if err := r.Patch(ctx, &node, patch); err != nil {
 					log.Error(err, "Failed to patch node", "node", node.Name)
 					return ctrl.Result{}, err
 				}
