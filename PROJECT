@@ -7,4 +7,14 @@ layout:
 - go.kubebuilder.io/v4
 projectName: declarative-labels-operator
 repo: dmpe.github.io/DeclarativeLabels
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: dmpe.github.io
+  group: webapp
+  kind: DeclarativeLabels
+  path: dmpe.github.io/DeclarativeLabels/api/v1alpha1
+  version: v1alpha1
 version: "3"

@@ -1,32 +1,23 @@
----
+# permissions for end users to view declarativelabels.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: manager-role
+  labels:
+    app.kubernetes.io/name: declarative-labels-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: declarativelabels-viewer-role
 rules:
 - apiGroups:
   - webapp.dmpe.github.io
   resources:
   - declarativelabels
   verbs:
-  - create
-  - delete
   - get
   - list
-  - patch
-  - update
   - watch
-- apiGroups:
-  - webapp.dmpe.github.io
-  resources:
-  - declarativelabels/finalizers
-  verbs:
-  - update
 - apiGroups:
   - webapp.dmpe.github.io
   resources:
   - declarativelabels/status
   verbs:
   - get
-  - patch
-  - update
